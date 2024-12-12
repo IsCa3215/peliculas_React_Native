@@ -11,11 +11,11 @@ export default function FilmScreen() {
                 data={nowPlaying?.movies}
                 renderItem={({ item }) =>
                     <View>
-                        <Image source={{ uri: "https://image.tmdb.org/t/p/original".concat(item.poster)}} style={{ width: 100, height: 150 }} />
-                        <Text>{item.poster}</Text>
+                        <Image source={{ uri: "https://image.tmdb.org/t/p/original".concat(item.poster)}} style={{ width: 200, height: 250 }} />
+                        <Text style={styles.testo}>{item.title}</Text>
                     </View>
                 }
-                keyExtractor={(item) => item.id.toString()}
+                keyExtractor={(item, index) => `${item.id}_${index}`}
                 onEndReached={() => { sumarPagina(); }} 
                 onEndReachedThreshold={0.5}
             >
@@ -26,4 +26,10 @@ export default function FilmScreen() {
     )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    testo: {
+        margin: 10,
+        padding: 8,
+        fontSize: 24
+    }
+})
