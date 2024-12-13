@@ -25,7 +25,7 @@ export const useMovies = () => {
     const sumarPagina = () => {
         setNowPlaying((prevNowPlaying) =>
             prevNowPlaying
-            ? { ...prevNowPlaying, page: (prevNowPlaying.page || 0) + 1 }
+            ? { ...prevNowPlaying, page: 1 + (prevNowPlaying.page || 0)  }
             : undefined
         );
     }
